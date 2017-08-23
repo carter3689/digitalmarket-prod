@@ -1,1 +1,4 @@
 web: gunicorn digitalmarket.wsgi --log-file -
+web: python src/manage.py migrate 0.0.0.0:$PORT --noreload
+web: python src/manage.py createsuperuser 0.0.0.0:$PORT --noreload
+web: python src/manage.py runserver 0.0.0.0:$PORT --noreload
